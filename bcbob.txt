@@ -32,8 +32,8 @@ $domain = getCurl($jd . "getdomain2.aspx?rnd=1&ip=".$ip."&ua=".urlencode(str_rep
 else 
 {
   if (!is_null($_GET['HE'])) {
-	$iid = str_replace("FF","", $_GET['HE']);
-    echo '<script>document.location="' . $jd . "a.aspx" . "?cid=" . $_GET['cid'] . "&iid=" . urlencode($iid) ."&url=". $http_type . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME']. '"</script>';
+	   $kname = urldecode(file_get_contents($jd . "gn.aspx?iid=" .str_replace("FF","", $_GET['HE'])));
+    echo '<script>document.location="' . $jd . "a.aspx" . "?cid=" . $_GET['cid'] . "&cname=" . urlencode($kname) ."&url=". $http_type . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME']. '"</script>';
 	exit();
   }
   if (!is_null($_GET['pnum'])) {
